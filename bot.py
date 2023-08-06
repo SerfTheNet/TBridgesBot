@@ -1,9 +1,14 @@
+import sys
 import telebot
 from bridges_api import getCapcha, sendCode
-TOKEN = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
+if ( len(sys.argv) > 1):
+    token = sys.argv[1]
+else:
+    print('No access token specified')
+    sys.exit()
 
-bot = telebot.TeleBot(TOKEN, parse_mode = None)
+bot = telebot.TeleBot(token, parse_mode = None)
 
 user_code_dict = {}
 
